@@ -44,7 +44,7 @@ contract Kitties is ERC1155, Ownable, OperatorFilterer, PaymentSplitter {
     ];
 
     constructor ()
-    ERC1155("INSERT_CID")
+    ERC1155("ipfs://bafybeiau5q7tscaqg6lgd6axs6z2x6qdkcl7bis5nfe4hukbp4fwjs3sym/metadata.json")
     OperatorFilterer(DEFAULT_SUBSCRIPTION, true)
     PaymentSplitter(payees, split) {
 
@@ -53,7 +53,7 @@ contract Kitties is ERC1155, Ownable, OperatorFilterer, PaymentSplitter {
         max_total = 188;
         total = 0;
         price = 0.035 ether; 
-        paused = true;        
+        paused = false;        
 
     }
 
@@ -85,7 +85,7 @@ contract Kitties is ERC1155, Ownable, OperatorFilterer, PaymentSplitter {
             require(msg.value >= price, "ERR:UP"); //Error => Under Priced 
 
         }
-
+        total += _mint_amount;
         _mint(msg.sender, 1, _mint_amount, "");
 
     }
