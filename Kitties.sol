@@ -75,6 +75,12 @@ contract Kitties is ERC1155, Ownable, OperatorFilterer, PaymentSplitter {
 
     }
 
+    function setPrice(uint256 _new_price) external onlyOwner {
+
+        price = _new_price;
+        
+    }
+
     function mint(uint16 _mint_amount) external payable {
 
         require(!paused, "ERR:CP"); //Error => Contract Paused
