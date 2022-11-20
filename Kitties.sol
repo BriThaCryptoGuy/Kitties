@@ -52,7 +52,7 @@ contract Kitties is ERC1155, Ownable, OperatorFilterer, PaymentSplitter {
         symbol = "KTS";
         max_total = 188;
         total = 0;
-        price = 0.035 ether; 
+        price = 0.03 ether; 
         paused = false;        
 
     }
